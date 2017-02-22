@@ -1,0 +1,39 @@
+<!--
+
+Below, look at the angular-contro11er.jsfile. Itusesaaconstructorfunctiontocreateanobject called BasketCtrl. This object is known as a controller or ViewModel. It is passed another object called $scope as an argument. Properties of the $scope object are set in the constructor function.
+
+-->
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<title>JavaScript &amp; jQuery - Chapter 9: APIs - Angular with a view model / controller</title>
+    	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    	<script src="js/angular-controller.js"></script>
+    	<link rel="stylesheet" href="css/c09.css">
+	</head>
+
+	<body>
+    	<header><h1>THE MAKER BUS</h1></header>
+    	<h2>Buy tickets</h2>
+    	<div class="third"><img src="img/toys1.jpg" alt="Circuit boards" /></div>
+
+    	<div class="two-thirds">
+
+<!--
+
+Note the object's name (BasketCtrl) matches the value of the ng-contro11er attribute on the opening <tab1e> tag. In this example, there is no database, so the controller will also act as the model: sharing data with the view.
+
+The HTMLfile (the view) gets its data from the BasketCtrl objectintheJavaScriptcontroller.
+In the HTML, note how the names in curly braces, e.g., { { cost } } and { { qty } }, match the properties of the $scope object in the JavaScript.
+The HTML file is now called a template because it will display whatever data is in the corresponding controller. The names in curly braces are like variables that match the data in the object. If the JavaScript object had different values, the HTML would show those values.
+
+-->
+    		<table ng-controller = "BasketCtrl">
+         		<tr><td>Item:</td><td>{{ description }}</td></tr>
+        		<tr><td>Cost:</td><td>${{ cost }}</td></tr>
+        		<tr><td>Qty:</td><td><input type="number" ng-model="qty"></td></tr>
+        		<tr><td>Subtotal:</td><td>{{qty * cost | currency}}</td></tr>
+    		</table>
+    	</div>
+	</body>
+</html>

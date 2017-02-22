@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app>
+  <head>
+    <title>JavaScript &amp; jQuery - Chapter 9: APIs - Simple Angular Example</title>
+    <link rel="stylesheet" href="css/c09.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+  </head>
+  <body>
+    <header><h1>THE MAKER BUS</h1></header>
+    <div class="third">
+      <p class="welcome">Tell your friends to join us for an awesome day of tinkering with the Maker Bus...</p>
+      <form>
+
+        To: <br>
+        <input ng-model = "name" type="text" /><br>
+
+        Message:<br>
+        <textarea ng-model="message"></textarea>
+        <input type="submit" value="send message" />
+      </form>
+    </div>
+<!--
+
+Note the new markup in the HTML. There are attributes that st art with ng- (which is short for Angular). These are called directives. There is one on the opening <html> tag and one on each of the form elements.
+The value of the ng-model attribute on the text inputs matches the values inside the double curly braces. Angular automatically takes the content of the form elements and writes
+it into the page where the corresponding curly braces are.
+No more JavaScript is needed to achieve this, whereas in jQuery, this would involve four steps:
+1. Writing an event handler for the form elements
+2. Using that to trigger code to get the elements' content
+3. Selecting new element nodes that represent the postcard
+4 . Writing the data into the page·
+
+-->
+    <div class="two-thirds">
+      <div class="postcard">
+        <div>{{ name }}</div>
+        <p>{{ message }}</p>
+      </div>
+    </div>
+
+  </body>
+</html>
